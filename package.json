@@ -20,6 +20,7 @@
     "react-dom": "^0.14.0-rc1",
     "redux": "^3.0.0",
     "redux-router": "^1.0.0-beta3",
+    "redux-logger" : "^2.0.2",
     "history": "^1.9.0"
   },
   "devDependencies": {
