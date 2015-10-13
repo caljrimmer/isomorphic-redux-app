@@ -1,6 +1,6 @@
 # Simple Redux Boilerplate
 
-This project serves as either a **simple** boilerplate to start building an universal rendering application in React.js and Redux
+This project serves as a **simple** boilerplate to start building an universal rendering application in React.js and Redux.
 
 ## Stack
 
