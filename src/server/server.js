@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import createLocation from 'history/lib/createLocation';
 
 import configureStore from '../common/store/configureStore';
+import { getUser } from '../common/api/calls';
 import routes from '../common/routes';
 
 const app = express();
@@ -38,41 +39,52 @@ const renderFullPage = (html, initialState) => {
   `;
 }
 
-app.get('/api', function (req, res) {
-  console.log(req,res)
-});
-
 app.get('/*', function (req, res) {
 
   const location = createLocation(req.url);
 
   console.log('######## Rendered by Server #######');
 
-  match({ routes, location }, (err, redirectLocation, renderProps) => {
+  const userid = 'abcde12345';
 
-    if(err) {
-      console.error(err);
-      return res.status(500).end('Internal server error');
-    }
+  getUser(userid ,user => {
 
-    if(!renderProps)
-      return res.status(404).end('Not found');
+      console.log(user)
 
-    const store = configureStore(renderProps.params);
+      if(!user) {
+        return res.status(401).end('Not Authorised');
+      }
 
-    const InitialView = (
-      <Provider store={store}>
-        {() =>
-          <RoutingContext {...renderProps} />
+      match({ routes, location }, (err, redirectLocation, renderProps) => {
+
+        if(err) {
+          console.error(err);
+          return res.status(500).end('Internal server error');
         }
-      </Provider>
-    );
 
-    const componentHTML = React.renderToString(InitialView);
-    const initialState = store.getState();
-    res.send(renderFullPage(componentHTML,initialState))
+        if(!renderProps)
+          return res.status(404).end('Not found');
 
-  });
+        const store = configureStore({user : user});
+
+        const InitialView = (
+          <Provider store={store}>
+            {() =>
+              <RoutingContext {...renderProps} />
+            }
+          </Provider>
+        );
+
+        const componentHTML = React.renderToString(InitialView);
+        const initialState = store.getState();
+        res.status(200).end(renderFullPage(componentHTML,initialState))
+
+      });
+
+    }
+  )
+
+  
 
 });
 

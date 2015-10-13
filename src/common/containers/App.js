@@ -10,10 +10,6 @@ class App extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.getUser('abcde12345');
-  }
-
   render() {
 
     return (
