@@ -1,0 +1,12 @@
+body {
+	background : black;
+	color:white;
+}
+
+a {
+	color: yellow
+}
+
+.active {
+	color:red;
+}

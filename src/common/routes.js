@@ -7,7 +7,7 @@ import RandomPage from "./containers/RandomPage";
 
 export default (
   <Route name="app" path="/" component={App}>
-      <Route path="random/:random" component={RandomPage} />
-      <Route path="counter/:counter" component={CounterPage} />
+      <Route path="random" component={RandomPage} />
+      <Route path="counter" component={CounterPage} />
   </Route>
 );

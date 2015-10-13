@@ -25,7 +25,7 @@ const renderFullPage = (html, initialState) => {
     <!doctype html>
     <html>
       <head>
-        <title>Redux Universal Example</title>
+        <title>Simple Redux Universal Example</title>
       </head>
       <body>
         <div id="root">${html}</div>

@@ -18,10 +18,10 @@ class App extends Component {
 
     return (
 	    <div>
-        <ol>
-          <li><Link to="/random/5" activeClassName="active">Random</Link></li>
-          <li><Link to="/counter/10" activeClassName="active">Counter</Link></li>
-        </ol>
+        <ul>
+          <li><Link to="/random" activeClassName="active">Random</Link></li>
+          <li><Link to="/counter" activeClassName="active">Counter</Link></li>
+        </ul>
         {this.props.children}
       </div>
     );

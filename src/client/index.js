@@ -8,6 +8,8 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import configureStore from '../common/store/configureStore';
 import routes from '../common/routes';
 
+import "../../styles/index.css";
+
 const history = createBrowserHistory();
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
@@ -27,5 +29,5 @@ if (process.env.NODE_ENV !== 'production') {
   // In production, you should ensure process.env.NODE_ENV
   // is envified so that Uglify can eliminate this
   // module and its dependencies as dead code.
-  require('../../createDevToolsWindow')(store);
+  require('../server/devtools')(store);
 }
