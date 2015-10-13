@@ -4,7 +4,9 @@
   "description": "An example of a universally-rendered Redux application",
   "scripts": {
     "clean": "rm -rf lib",
-    "start": "node src/server/index.js"
+    "start": "node src/server/index.js",
+    "start-prod": "NODE_ENV=production node src/server/index.js",
+    "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js"
   },
   "repository": {
     "type": "git",

@@ -16,10 +16,12 @@ import routes from '../common/routes';
 
 const app = express();
 
-// Use this middleware to set up hot module reloading via webpack.
-const compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
+if(process.env.NODE_ENV !== 'production'){
+  // Use this middleware to set up hot module reloading via webpack.
+  const compiler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}
 
 const renderFullPage = (html, initialState) => {
   return `
