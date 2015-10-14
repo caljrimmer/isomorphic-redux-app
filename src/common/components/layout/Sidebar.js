@@ -1,27 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 
 class Sidebar extends Component {
 
+  constructor(props){
+	super(props);
+  }
+
   render() {
+
     return (
 
-      	<div className="sidebar">
+    	<div className="sidebar">
 
 		  <div className="sidebar-item">
-		    <p>A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+		    <p>This is an example of a website built with redux and react</p>
 		  </div>
 
 		  <nav className="sidebar-nav">
-		    <a className="sidebar-nav-item active" href="/">Home</a>
-			<a className="sidebar-nav-item" href="/counter">Counter</a>
-			<a className="sidebar-nav-item" href="/random">Random</a>
+		    <Link to="/home" className="sidebar-nav-item" activeClassName="active">Home</Link>
+		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter</Link>
+		    <Link to="/random" className="sidebar-nav-item" activeClassName="active">Random</Link>
+		    <Link to="/about" className="sidebar-nav-item" activeClassName="active">About</Link>
 		    <span className="sidebar-nav-item">Currently v1.0.0</span>
 		  </nav>
 
-		  <div className="sidebar-item">
+		  <div className="sidebar-item sidebar-footer">
 		    <p>
-		      © 2015. All rights reserved.
+				<a href="https://github.com/caljrimmer/simple-redux-boiler">Visit GitHub Repo</a> 
 		    </p>
 		  </div>
 

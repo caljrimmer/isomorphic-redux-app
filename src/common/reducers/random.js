@@ -1,6 +1,6 @@
 import { SET_RANDOM, INCREMENT_RANDOM, DECREMENT_RANDOM } from '../actions/random';
 
-export default function counter(state = 0, action) {
+export default function random(state = 0, action) {
   switch (action.type) {
   case SET_RANDOM:
     return action.payload,10;

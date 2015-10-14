@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import classNames from 'classnames';
 import * as UserActions from '../actions/user';
+import * as LayoutActions from '../actions/layout';
 import Header from '../components/layout/Header'
 import Sidebar from '../components/layout/Sidebar'
 
@@ -10,16 +12,23 @@ class App extends Component {
 
   constructor(props){
     super(props);
+    this.eventToggleSidebar = this.eventToggleSidebar.bind(this)
+  }
+
+  eventToggleSidebar(e) {
+    e.preventDefault();
+    this.props.toggleSidebar(!this.props.layout.sidebarOpen);
   }
 
   render() {
 
-    const { user } = this.props;
+    const { user,layout } = this.props;
+    const { sidebarOpen } = layout;
+    const layoutClass = classNames({open : sidebarOpen});
 
     return (
-      <div>
-        <input type="checkbox" className="sidebar-checkbox" />
-        <Sidebar user={user} />
+      <div className={layoutClass}>
+        <Sidebar layout={layout} user={user} />
   	    <div className="wrap">
           <Header user={user} />
           <div className="container content">
@@ -30,7 +39,9 @@ class App extends Component {
             {this.props.children}
           </div>
         </div>
-        <label for="sidebar-checkbox" className="sidebar-toggle"></label>
+
+        <label className="sidebar-toggle" onClick={this.eventToggleSidebar}></label>
+
       </div>
     );
   }
@@ -38,12 +49,13 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-  	user : state.user
+  	user : state.user,
+    layout : state.layout
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(UserActions, dispatch);
+  return bindActionCreators(LayoutActions,dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

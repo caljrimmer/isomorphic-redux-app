@@ -185,15 +185,6 @@ a.sidebar-nav-item:focus {
   }
 }
 
-/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
-.sidebar-checkbox {
-  position: absolute;
-  opacity: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
@@ -218,16 +209,16 @@ a.sidebar-nav-item:focus {
   background-image:         linear-gradient(to bottom, #555, #555 20%, #fff 20%, #fff 40%, #555 40%, #555 60%, #fff 60%, #fff 80%, #555 80%, #555 100%);
 }
 
-.sidebar-toggle:active,
-#sidebar-checkbox:focus ~ .sidebar-toggle,
-#sidebar-checkbox:checked ~ .sidebar-toggle {
+.open .sidebar-toggle:active,
+.open .sidebar-toggle,
+.open .sidebar-toggle {
   color: #fff;
   background-color: #555;
 }
 
-.sidebar-toggle:active:before,
-#sidebar-checkbox:focus ~ .sidebar-toggle:before,
-#sidebar-checkbox:checked ~ .sidebar-toggle:before {
+.open .sidebar-toggle:active:before,
+.open .sidebar-toggle:before,
+.open .sidebar-toggle:before {
   background-image: -webkit-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
   background-image:    -moz-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
   background-image:     -ms-linear-gradient(to bottom, #fff, #fff 20%, #555 20%, #555 40%, #fff 40%, #fff 60%, #555 60%, #555 80%, #fff 80%, #fff 100%);
@@ -272,16 +263,26 @@ a.sidebar-nav-item:focus {
           transition: transform .3s ease-in-out;
 }
 
-#sidebar-checkbox:checked + .sidebar {
+.open .sidebar-toggle,
+.open .sidebar,
+.open .wrap{
   z-index: 10;
   visibility: visible;
-}
-#sidebar-checkbox:checked ~ .sidebar,
-#sidebar-checkbox:checked ~ .wrap,
-#sidebar-checkbox:checked ~ .sidebar-toggle {
   -webkit-transform: translateX(14rem);
       -ms-transform: translateX(14rem);
-          transform: translateX(14rem);
+          transform: translateX(14rem);  
+}
+
+.sidebar-footer a{
+  color: #268bd2;
+  opacity: 0.3;
+  border-bottom:1px dotted #268bd2;
+  margin-right:1em;
+}
+
+.sidebar-footer a:hover {
+  opacity:1;
+  text-decoration:none;
 }
 
 

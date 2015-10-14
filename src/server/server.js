@@ -51,8 +51,6 @@ app.get('/*', function (req, res) {
 
   getUser(userid ,user => {
 
-      console.log(user)
-
       if(!user) {
         return res.status(401).end('Not Authorised');
       }
