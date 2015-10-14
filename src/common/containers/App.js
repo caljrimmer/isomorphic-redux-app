@@ -22,22 +22,20 @@ class App extends Component {
 
   render() {
 
-    const { user,layout } = this.props;
+    const { user,layout, version } = this.props;
     const { sidebarOpen } = layout;
     const layoutClass = classNames({open : sidebarOpen});
 
     return (
       <div className={layoutClass}>
-        <Sidebar layout={layout} user={user} />
+        <Sidebar layout={layout} user={user} version={version} />
   	    <div className="wrap">
           <Header user={user} />
           <div className="container content">
             {this.props.children}
           </div>
         </div>
-
         <label className="sidebar-toggle" onClick={this.eventToggleSidebar}></label>
-
       </div>
     );
   }
@@ -45,6 +43,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
+    version : state.version,
   	user : state.user,
     layout : state.layout
   };

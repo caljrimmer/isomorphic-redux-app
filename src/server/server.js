@@ -13,6 +13,7 @@ import createLocation from 'history/lib/createLocation';
 import configureStore from '../common/store/configureStore';
 import { getUser } from '../common/api/calls';
 import routes from '../common/routes';
+import packagejson from '../../package.json';
 
 const app = express();
 
@@ -33,7 +34,7 @@ const renderFullPage = (html, initialState) => {
       <body>
         <div id="root">${html}</div>
         <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}; 
         </script>
         <script src="/static/bundle.js"></script>
       </body>
@@ -65,7 +66,7 @@ app.get('/*', function (req, res) {
         if(!renderProps)
           return res.status(404).end('Not found');
 
-        const store = configureStore({user : user});
+        const store = configureStore({user : user, version : packagejson.version});
 
         const InitialView = (
           <Provider store={store}>

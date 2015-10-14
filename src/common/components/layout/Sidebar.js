@@ -10,6 +10,8 @@ class Sidebar extends Component {
 
   render() {
 
+  	const {version} = this.props;
+
     return (
 
     	<div className="sidebar">
@@ -23,7 +25,7 @@ class Sidebar extends Component {
 		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter</Link>
 		    <Link to="/random" className="sidebar-nav-item" activeClassName="active">Random</Link>
 		    <Link to="/about" className="sidebar-nav-item" activeClassName="active">About</Link>
-		    <span className="sidebar-nav-item">Currently v1.0.0</span>
+		    <span className="sidebar-nav-item">{'Currently v'+ version}</span>
 		  </nav>
 
 		  <div className="sidebar-item sidebar-footer">
