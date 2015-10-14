@@ -4,12 +4,13 @@ class Home extends Component {
 
   render() {
     return (
+
       	<div className="posts">
   
   			<div className="post">
-			    <h1 className="post-title">Introducing the Redux universal render</h1>
+			    <h1 className="post-title">Introducing Redux Universal example</h1>
     			<span className="post-date">{new Date()}</span>
-    			<p>The theme has been based on <a href="http://jekyllrb.com">Jekyll</a> which in turn is based on <a href="http://getpoole.com">Poole</a>.</p>
+    			<p>The theme has been based on <a href="http://lanyon.getpoole.com/">Lanyon</a> which in turn is based on <a href="http://getpoole.com">Poole</a>.</p>
 
 				<h3>Template features</h3>
 
@@ -23,7 +24,7 @@ class Home extends Component {
 				<h3>Code features</h3>
 
 				<ul>
-					<li>Toggleable sliding sidebar (built with only CSS) via <strong>☰</strong> link in top corner</li>
+					<li>Toggleable sliding sidebar (built with only CSS) via link in top corner</li>
 					<li>Sidebar includes support for textual modules and active link support</li>
 					<li>Isomorphic/Universal rendering with express as server</li>
 					<li>ES6/ES7 syntax with Babel transforms</li>

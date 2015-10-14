@@ -30,7 +30,8 @@ class Sidebar extends Component {
 
 		  <div className="sidebar-item sidebar-footer">
 		    <p>
-				<a href="https://github.com/caljrimmer/simple-redux-boiler">Visit GitHub Repo</a> 
+				Visit <a href="https://github.com/caljrimmer/simple-redux-boiler">GitHub Repo</a><br/>
+				Based on <a href="http://lanyon.getpoole.com/"> Lanyon Theme</a> 
 		    </p>
 		  </div>
 

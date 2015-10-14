@@ -7,8 +7,8 @@ class Header extends Component {
       	<div className="masthead">
 			<div className="container">
 			  <h3 className="masthead-title">
-			    <a href="/" title="Home">App</a>
-			    <small>An app built with react and redux</small>
+			    <a href="/" title="Home">Redux Universal</a>
+			    <small>Click on menu icon to get started</small>
 			  </h3>
 			</div>
 		</div>
