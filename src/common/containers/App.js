@@ -32,10 +32,6 @@ class App extends Component {
   	    <div className="wrap">
           <Header user={user} />
           <div className="container content">
-            <ul>
-              <li><Link to="/random" activeClassName="active">Random</Link></li>
-              <li><Link to="/counter" activeClassName="active">Counter</Link></li>
-            </ul>
             {this.props.children}
           </div>
         </div>
