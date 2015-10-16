@@ -6,20 +6,15 @@ class About extends Component {
     return (
       	<div className="posts">
   
-  			<div className="post">
-			    <h1 className="post-title">Why I coded this app</h1>
+			    <h1 className="post-title">Why I coded this</h1>
     			<p>Redux and React are rapidly developing code bases. I was having difficultly finding a simple boiler plate example to base my Redux app on. I decided to create my own stripped down version.</p>
+
+			<div className="message">
+			  	<p>My name is <b>Callum Rimmer</b>.</p> 
+			  	<p>You can find me at my<br/> 
+			  	<a href="https://github.com/caljrimmer">Github account (@caljrimmer)</a><br/> 
+			  	<a href="https://twitter.com/caljrimmer">Twitter account(@caljrimmer)</a></p>
 			</div>
-
-			<div className="post">
-				<div className="message">
-				  	<p>My name is <b>Callum Rimmer</b>.</p> 
-
-				  	<p>You can find me at my<br/> 
-				  	<a href="https://github.com/caljrimmer">Github account (@caljrimmer)</a><br/> 
-				  	<a href="https://twitter.com/caljrimmer">Twitter account(@caljrimmer)</a></p>
-				</div>
-			</div>  
   		</div>
   
     );

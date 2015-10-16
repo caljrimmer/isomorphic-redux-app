@@ -9,13 +9,18 @@ class Counter extends Component {
   render() {
     const { incrementCounter, decrementCounter, counter } = this.props;
     return (
-      <p>
-        Counter: {counter} times
-        {' '}
-        <button onClick={incrementCounter}>+</button>
-        {' '}
-        <button onClick={decrementCounter}>-</button>
-      </p>
+      <div className="posts">
+        <h1>Counter</h1>
+        <p>This counter is here to show the state is conserved as you navigate through the app.</p> 
+        <p>
+          <b>Counter: {counter} times</b>
+          {' '}
+          <button onClick={incrementCounter}>+</button>
+          {' '}
+          <button onClick={decrementCounter}>-</button>
+        </p>
+      </div>
+      
     );
   }
 }

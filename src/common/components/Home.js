@@ -15,7 +15,7 @@ class Home extends Component {
 				<h3>Template features</h3>
 
 				<ul>
-					<li>Complete setup included (layouts, api calls, <a href="/404">404</a>, static content and stateful content</li>
+					<li>Complete setup included (layouts, api calls, 404, static content and stateful content</li>
 					<li>Mobile friendly design and development</li>
 					<li>Easily scalable text and component sizing with <code>rem</code> units in the CSS</li>
 					<li>Support for a wide gamut of HTML elements</li>

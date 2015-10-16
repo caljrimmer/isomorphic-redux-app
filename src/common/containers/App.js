@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
 
-    const { user,layout, version } = this.props;
+    const { user,layout, version, counter } = this.props;
     const { sidebarOpen } = layout;
     const layoutClass = classNames({open : sidebarOpen});
 
@@ -30,7 +30,7 @@ class App extends Component {
       <div className={layoutClass}>
         <Sidebar layout={layout} user={user} version={version} />
   	    <div className="wrap">
-          <Header user={user} />
+          <Header counter={counter} />
           <div className="container content">
             {this.props.children}
           </div>
@@ -43,6 +43,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
+    counter : state.counter,
     version : state.version,
   	user : state.user,
     layout : state.layout

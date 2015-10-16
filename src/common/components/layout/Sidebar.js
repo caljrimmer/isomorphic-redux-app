@@ -10,7 +10,7 @@ class Sidebar extends Component {
 
   render() {
 
-  	const {version} = this.props;
+  	const {version,user} = this.props;
 
     return (
 
@@ -18,18 +18,19 @@ class Sidebar extends Component {
 
 		  <div className="sidebar-item">
 		    <p>This is an example of a website built with redux and react</p>
+		    <p>Logged in as <b>{user.name}</b></p>
 		  </div>
 
 		  <nav className="sidebar-nav">
 		    <Link to="/home" className="sidebar-nav-item" activeClassName="active">Home <span className="nav-note">[static]</span></Link>
 		    <Link to="/reddit" className="sidebar-nav-item" activeClassName="active">Reddit <span className="nav-note">[api]</span></Link>
-		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter</Link>
-		    <Link to="/random" className="sidebar-nav-item" activeClassName="active">Random</Link>
+		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter <span className="nav-note">[stateful]</span></Link>
 		    <Link to="/about" className="sidebar-nav-item" activeClassName="active">About <span className="nav-note">[static]</span></Link>
-		    <span className="sidebar-nav-item">{'Currently v'+ version}</span>
+		    <span className="sidebar-nav-item"><span className="nav-note">{`Currently version ${version}`}</span></span>
 		  </nav>
 
 		  <div className="sidebar-item sidebar-footer">
+		  	
 		    <p>
 				Visit <a href="https://github.com/caljrimmer/simple-redux-boiler">GitHub Repo</a><br/>
 				Based on <a href="http://lanyon.getpoole.com/"> Lanyon Theme</a> 
