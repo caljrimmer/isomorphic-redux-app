@@ -2,6 +2,10 @@
    color:#fff;
 }
 
+.post-error {
+   color:red;
+}
+
 .masthead-title {
 	position:relative;
 }

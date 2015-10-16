@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectReddit, fetchPostsIfNeeded, invalidateReddit } from '../actions/reddit';
 import Picker from './reddit/Picker';
 import Posts from './reddit/Posts';
 
@@ -35,7 +34,7 @@ class Reddit extends Component {
   }
 
   render () {
-    const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
+    const { selectedReddit, posts, isFetching, lastUpdated, error } = this.props;
     return (
       <div>
         <Picker value={selectedReddit}
@@ -58,8 +57,11 @@ class Reddit extends Component {
         {isFetching && posts.length === 0 &&
           <h3>Loading...</h3>
         }
-        {!isFetching && posts.length === 0 &&
-          <h3>Empty.</h3>
+        {!isFetching && error && posts.length === 0 &&
+          <h3 className="post-error">There has been an Error</h3>
+        }
+        {!isFetching && !error && posts.length === 0 &&
+          <h3>Empty</h3>
         }
         {posts.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
@@ -74,6 +76,7 @@ class Reddit extends Component {
 Reddit.propTypes = {
   selectedReddit: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
+  error: PropTypes.bool.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number
 };

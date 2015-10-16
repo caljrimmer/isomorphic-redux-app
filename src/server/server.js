@@ -9,9 +9,10 @@ import React from 'react';
 import { RoutingContext, match } from 'react-router';
 import { Provider } from 'react-redux';
 import createLocation from 'history/lib/createLocation';
+import { fetchComponentDataBeforeRender } from '../common/api/fetchComponentDataBeforeRender';
 
 import configureStore from '../common/store/configureStore';
-import { getUser } from '../common/api/calls';
+import { getUser } from '../common/api/user';
 import routes from '../common/routes';
 import packagejson from '../../package.json';
 
@@ -76,10 +77,14 @@ app.get('/*', function (req, res) {
           </Provider>
         );
 
-        const componentHTML = React.renderToString(InitialView);
-        const initialState = store.getState();
-        res.status(200).end(renderFullPage(componentHTML,initialState))
-
+        //This method waits for all render component promises to resolve before returning to browser
+        fetchComponentDataBeforeRender(store.dispatch, renderProps.components, renderProps.params)
+          .then(html => {
+            const componentHTML = React.renderToString(InitialView);
+            const initialState = store.getState();
+            res.status(200).end(renderFullPage(componentHTML,initialState))
+          })
+          .catch(err => res.end(err.message));
       });
 
     }

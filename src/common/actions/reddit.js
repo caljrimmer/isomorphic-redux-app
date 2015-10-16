@@ -1,9 +1,12 @@
-import fetch from 'isomorphic-fetch';
+import request from 'axios';
 
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_REDDIT = 'SELECT_REDDIT';
 export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT';
+
+export const POSTS_GET = 'POSTS_GET';
+export const POSTS_GET_REQUEST = 'POSTS_GET_REQUEST';
+export const POSTS_GET_SUCCESS = 'POSTS_GET_SUCCESS';
+export const POSTS_GET_FAILURE = 'POSTS_GET_FAILURE';
 
 export function selectReddit(reddit) {
   return {
@@ -19,33 +22,15 @@ export function invalidateReddit(reddit) {
   };
 }
 
-function requestPosts(reddit) {
+export function fetchPosts(reddit = 'reactjs') {
   return {
-    type: REQUEST_POSTS,
-    reddit
-  };
-}
-
-function receivePosts(reddit, json) {
-  return {
-    type: RECEIVE_POSTS,
+    type: POSTS_GET,
     reddit,
-    posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
-  };
-}
-
-function fetchPosts(reddit) {
-  return dispatch => {
-    dispatch(requestPosts(reddit));
-    return fetch(`http://www.reddit.com/r/${reddit}.json`)
-      .then(req => req.json())
-      .then(json => dispatch(receivePosts(reddit, json)));
+    promise: request.get(`http://www.reddit.com/r/${reddit}.json`)
   }
 }
 
 function shouldFetchPosts(state, reddit) {
-  console.log(state,reddit)
   const posts = state.postsByReddit[reddit];
   if (!posts) {
     return true;
