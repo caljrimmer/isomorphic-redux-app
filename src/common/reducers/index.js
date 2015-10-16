@@ -4,13 +4,16 @@ import counter from './counter';
 import random from './random';
 import layout from './layout';
 import version from './version';
+import {selectedReddit,postsByReddit} from './reddit';
 
 const rootReducer = combineReducers({
   user,
   counter,
   layout,
   random,
-  version
+  version,
+  selectedReddit,
+  postsByReddit
 });
 
 export default rootReducer;

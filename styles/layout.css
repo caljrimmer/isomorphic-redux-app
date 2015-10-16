@@ -175,6 +175,12 @@ a.sidebar-nav-item:focus {
   border-color: transparent;
 }
 
+.sidebar-nav-item span.nav-note {
+  text-transform:uppercase;
+  font-size:0.6em;
+  opacity:0.5;
+}
+
 @media (min-width: 48em) {
   .sidebar-item {
     padding: 1.5rem;

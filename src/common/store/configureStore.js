@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { devTools } from 'redux-devtools';
 import { reduxReactRouter } from 'redux-router';
+import thunk from 'redux-thunk';
 import createHistory from 'history/lib/createBrowserHistory';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
-let middleware = [];
+let middleware = [thunk];
 
 //Browser only middleware
 if(process.browser){
