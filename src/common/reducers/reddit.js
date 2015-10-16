@@ -29,7 +29,6 @@ function posts(state = {
     });
   case POSTS_GET_FAILURE:
     return Object.assign({}, state, {
-      error:true,
       isFetching: false,
       didInvalidate: false
     });
@@ -47,15 +46,28 @@ export function selectedReddit(state = 'reactjs', action) {
   }
 }
 
+function buildRedditObject(state,reddit,obj) {
+  return Object.assign({}, state, {
+    [reddit]: posts(state[reddit],
+    obj)
+  });
+}
+
 export function postsByReddit(state = { }, action) {
   switch (action.type) {
+  case INVALIDATE_REDDIT:
+  case POSTS_GET_REQUEST:
   case POSTS_GET_SUCCESS:
-    let data = action.req.data.data;
+    let postsArray = [];
+    if(action.req && action.req.data){
+      let data = action.req.data.data;
+      postsArray = data.children.map(child => child.data);
+    }
     return Object.assign({}, state, {
       [action.reddit]: posts(state[action.reddit], {
         type: action.type,
         reddit: action.reddit,
-        posts: data.children.map(child => child.data),
+        posts: postsArray,
         receivedAt: Date.now()
       })
     });
@@ -65,16 +77,15 @@ export function postsByReddit(state = { }, action) {
       [action.reddit]: posts(state[action.reddit], {
         type: action.type,
         reddit: action.reddit,
+        posts: [],
+        receivedAt: Date.now(),
         error : {
           status: action.error.status,
           statusText : action.error.statusText
-        },
-        posts:[],
-        receivedAt: Date.now()
+        }
       })
     });
-    case INVALIDATE_REDDIT:
-    case POSTS_GET_REQUEST:
+
   default:
     return state;
   }

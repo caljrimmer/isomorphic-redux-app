@@ -35,6 +35,7 @@ class Reddit extends Component {
 
   render () {
     const { selectedReddit, posts, isFetching, lastUpdated, error } = this.props;
+    console.log(error)
     return (
       <div>
         <Picker value={selectedReddit}
@@ -76,7 +77,7 @@ class Reddit extends Component {
 Reddit.propTypes = {
   selectedReddit: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number
 };
