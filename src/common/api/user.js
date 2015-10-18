@@ -1,5 +1,5 @@
 
-export function getUser(id, callback) {
+export function getUser(callback) {
   // Rather than immediately returning, we delay our code with a timeout to simulate asynchronous behavior
   setTimeout(() => {
     callback({
@@ -7,7 +7,7 @@ export function getUser(id, callback) {
       dept : 'Web Team',
       lastLogin : new Date(),
       email : 'john@smith.com',
-      id : id 
+      id : 'abcde1234' 
     });
   }, 500);
 

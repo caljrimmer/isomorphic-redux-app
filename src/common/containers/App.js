@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 import * as UserActions from '../actions/user';
 import * as LayoutActions from '../actions/layout';
+import Home from '../components/Home'
 import Header from '../components/layout/Header'
 import Sidebar from '../components/layout/Sidebar'
 
@@ -32,6 +33,7 @@ class App extends Component {
   	    <div className="wrap">
           <Header counter={counter} />
           <div className="container content">
+            {!this.props.children && <Home />}
             {this.props.children}
           </div>
         </div>

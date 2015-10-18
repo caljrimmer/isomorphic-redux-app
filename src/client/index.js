@@ -3,6 +3,8 @@ import 'babel-core/polyfill';
 import React from 'react';
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';
+import { ReduxRouter } from 'redux-router';
+
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 
 import configureStore from '../common/store/configureStore';
@@ -18,16 +20,14 @@ const rootElement = document.getElementById('root');
 React.render(
   <Provider store={store}>
     {() =>
-      <Router children={routes} history={history} />
+        <ReduxRouter>
+          <Router children={routes} history={history} />
+        </ReduxRouter>
     }
   </Provider>,
   document.getElementById('root')
 );
 
 if (process.env.NODE_ENV !== 'production') {
-  // Use require because imports can't be conditional.
-  // In production, you should ensure process.env.NODE_ENV
-  // is envified so that Uglify can eliminate this
-  // module and its dependencies as dead code.
   require('../server/devtools')(store);
 }

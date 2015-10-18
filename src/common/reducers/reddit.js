@@ -46,13 +46,6 @@ export function selectedReddit(state = 'reactjs', action) {
   }
 }
 
-function buildRedditObject(state,reddit,obj) {
-  return Object.assign({}, state, {
-    [reddit]: posts(state[reddit],
-    obj)
-  });
-}
-
 export function postsByReddit(state = { }, action) {
   switch (action.type) {
   case INVALIDATE_REDDIT:

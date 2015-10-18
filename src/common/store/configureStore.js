@@ -7,20 +7,43 @@ import createLogger from 'redux-logger';
 import promiseMiddleware from '../api/promiseMiddleware';
 import rootReducer from '../reducers';
 
-let middleware = [thunk,promiseMiddleware];
+const middlewareBuilder = () => {
 
-//Browser only middleware
-if(process.browser){
-  //Dev only middleare
-  if(process.env.NODE_ENV !== 'production'){
-    middleware = [...middleware,createLogger()]
+  let middleware = {};
+  let universalMiddleware = [thunk,promiseMiddleware];
+  let allComposeElements = [];
+  
+  if(process.browser){
+    if(process.env.NODE_ENV === 'production'){
+      middleware = applyMiddleware(...universalMiddleware);
+      allComposeElements = [
+        middleware,
+        reduxReactRouter({
+          createHistory
+        })
+      ]
+    }else{
+      middleware = applyMiddleware(...universalMiddleware,createLogger());
+      allComposeElements = [
+        middleware,
+        reduxReactRouter({
+          createHistory
+        }),
+        devTools()
+      ]
+    }
+  }else{
+    middleware = applyMiddleware(...universalMiddleware);
+    allComposeElements = [
+      middleware
+    ]
   }
+
+  return allComposeElements;
+
 }
 
-const finalCreateStore = compose(
-  applyMiddleware(...middleware),
-  devTools()
-)(createStore);
+const finalCreateStore = compose(...middlewareBuilder())(createStore);
 
 export default function configureStore(initialState) {
   const store = finalCreateStore(rootReducer, initialState);

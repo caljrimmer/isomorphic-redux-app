@@ -1,9 +1,9 @@
 import express from 'express';
 
 import webpack from 'webpack';
+import webpackConfig from '../../webpack.config';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfig from '../../webpack.config';
 
 import React from 'react';
 import { RoutingContext, match } from 'react-router';
@@ -17,14 +17,6 @@ import routes from '../common/routes';
 import packagejson from '../../package.json';
 
 const app = express();
-
-if(process.env.NODE_ENV !== 'production'){
-  // Use this middleware to set up hot module reloading via webpack.
-  const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-  app.use(webpackHotMiddleware(compiler));
-}
-
 const renderFullPage = (html, initialState) => {
   return `
     <!doctype html>
@@ -43,15 +35,19 @@ const renderFullPage = (html, initialState) => {
   `;
 }
 
+if(process.env.NODE_ENV !== 'production'){
+  const compiler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
+}else{
+  app.use('/static', express.static(__dirname + '/../../dist'));
+}
+
 app.get('/*', function (req, res) {
 
   const location = createLocation(req.url);
 
-  console.log('######## Rendered by Server #######');
-
-  const userid = 'abcde12345';
-
-  getUser(userid ,user => {
+  getUser(user => {
 
       if(!user) {
         return res.status(401).end('Not Authorised');
@@ -90,12 +86,10 @@ app.get('/*', function (req, res) {
     }
   )
 
-  
-
 });
 
-var server = app.listen(3002, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+const server = app.listen(3002, function () {
+  const host = server.address().address;
+  const port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });

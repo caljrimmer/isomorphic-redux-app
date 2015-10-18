@@ -3,10 +3,11 @@
   "version": "0.0.8",
   "description": "An example of a universally-rendered Redux application",
   "scripts": {
-    "clean": "rm -rf lib",
-    "start": "node src/server/index.js",
-    "start-prod": "NODE_ENV=production node src/server/index.js",
-    "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js"
+    "slate": "rm -rf node_modules && npm install",
+    "clean": "rm -rf dist",
+    "start": "NODE_ENV=development node src/server/index.js --progress --colors --profile",
+    "start-prod": "NODE_ENV=production node src/server/index.js --progress --colors --profile",
+    "build": "npm run clean && NODE_ENV=production webpack -p --progress --colors --profile"
   },
   "repository": {
     "type": "git",
@@ -18,15 +19,18 @@
     "express": "^4.13.3",
     "react": "^0.13.3",
     "react-router": "^1.0.0-rc1",
+    "redux-router": "^1.0.0-beta3",
     "react-redux": "^2.1.2",
     "react-dom": "^0.14.0-rc1",
     "redux": "^3.0.0",
-    "redux-router": "^1.0.0-beta3",
     "redux-logger" : "^2.0.2",
     "redux-thunk": "^0.1.0",
     "history": "^1.9.0",
     "classnames" : "^2.1.5",
-    "axios" : "^0.7.0"
+    "axios" : "^0.7.0",
+    "react-transform-hmr": "^1.0.0",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",
@@ -34,10 +38,7 @@
     "redux-devtools": "^2.1.5",
     "babel-plugin-react-transform": "^1.1.0",
     "babel-runtime": "^5.8.20",
-    "react-transform-hmr": "^1.0.0",
     "webpack": "^1.11.0",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0",
     "style-loader": "^0.8.0",
     "css-loader": "^0.9.0"
   }

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerStateReducer } from 'redux-router';
 import user from './user';
 import counter from './counter';
 import layout from './layout';
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   layout,
   version,
   selectedReddit,
-  postsByReddit
+  postsByReddit,
+  router : routerStateReducer
 });
 
 export default rootReducer;

@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
+var webpackConfig = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client',
@@ -14,7 +14,6 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   module: {
@@ -50,3 +49,11 @@ module.exports = {
     }]
   }
 };
+
+if (process.env.NODE_ENV === 'production') {
+  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}else{
+  webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+module.exports = webpackConfig;
