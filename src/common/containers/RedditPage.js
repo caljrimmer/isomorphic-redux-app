@@ -11,7 +11,9 @@ Reddit.need = [
 ]
 
 function mapStateToProps(state) {
-  const { selectedReddit, postsByReddit } = state;
+  let { selectedReddit, postsByReddit } = state;
+  selectedReddit = selectedReddit.present;
+  postsByReddit = postsByReddit.present;
   const {
     isFetching,
     lastUpdated,

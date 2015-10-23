@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 class Header extends Component {
 
   render() {
-  	const {counter} = this.props;
+  	let {counter} = this.props;
     return (
       	<div className="masthead">
 			<div className="container">

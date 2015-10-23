@@ -14,11 +14,23 @@ class App extends Component {
   constructor(props){
     super(props);
     this.eventToggleSidebar = this.eventToggleSidebar.bind(this)
+    this.eventUndo = this.eventUndo.bind(this)
+    this.eventRedo = this.eventRedo.bind(this)
   }
 
   eventToggleSidebar(e) {
     e.preventDefault();
     this.props.toggleSidebar(!this.props.layout.sidebarOpen);
+  }
+
+  eventUndo(e) {
+    e.preventDefault();
+    this.props.undo();
+  }
+
+  eventRedo(e) {
+    e.preventDefault();
+    this.props.redo();
   }
 
   render() {
@@ -38,6 +50,8 @@ class App extends Component {
           </div>
         </div>
         <label className="sidebar-toggle" onClick={this.eventToggleSidebar}></label>
+        <label className="undo-button" onClick={this.eventUndo}>&lt;</label>
+        <label className="redo-button" onClick={this.eventRedo}>&gt;</label>
       </div>
     );
   }
@@ -45,10 +59,10 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    counter : state.counter,
+    counter : state.counter.present,
     version : state.version,
   	user : state.user,
-    layout : state.layout
+    layout : state.layout.present
   };
 }
 

@@ -1,3 +1,4 @@
+
 {
   "name": "simple-redux-boiler",
   "version": "0.0.8",
@@ -25,6 +26,7 @@
     "redux": "^3.0.0",
     "redux-logger" : "^2.0.2",
     "redux-thunk": "^0.1.0",
+    "redux-undo": "^0.5.0",
     "history": "^1.9.0",
     "classnames" : "^2.1.5",
     "axios" : "^0.7.0",

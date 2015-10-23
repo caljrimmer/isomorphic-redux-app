@@ -2,6 +2,38 @@
    color:#fff;
 }
 
+.undo-button,
+.redo-button {
+   position: absolute;
+   top: 4.6rem;
+   left: 1.6rem;
+   display: block;
+   padding: 0;
+   color: #505050;
+   border-radius: .25rem;
+   cursor: pointer;
+   line-height: 0;
+   transition: transform .3s ease-in-out;
+}
+
+.redo-button {
+   left:2.3rem;
+}
+
+.undo-button:hover,
+.redo-button:hover {
+   color:#268bd2;   
+}
+
+.open .undo-button,
+.open .redo-button {
+   z-index: 10;
+   -webkit-transform: translateX(14rem);
+   -ms-transform: translateX(14rem);
+   transform: translateX(14rem);   
+}
+
+
 .post-error {
    color:red;
 }
