@@ -80,7 +80,10 @@ app.get('/*', function (req, res) {
             const initialState = store.getState();
             res.status(200).end(renderFullPage(componentHTML,initialState))
           })
-          .catch(err => res.end(err.message));
+          .catch(err => {
+            console.log(err)
+            res.end(renderFullPage("",{}))
+          });
       });
 
     }

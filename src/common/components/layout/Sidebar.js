@@ -24,6 +24,7 @@ class Sidebar extends Component {
 		  <nav className="sidebar-nav">
 		    <Link to="/home" className="sidebar-nav-item" activeClassName="active">Home <span className="nav-note">[static]</span></Link>
 		    <Link to="/reddit" className="sidebar-nav-item" activeClassName="active">Reddit <span className="nav-note">[api]</span></Link>
+		    <Link to="/todo" className="sidebar-nav-item" activeClassName="active">Todo <span className="nav-note">[stateful]</span></Link>
 		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter <span className="nav-note">[stateful]</span></Link>
 		    <Link to="/about" className="sidebar-nav-item" activeClassName="active">About <span className="nav-note">[static]</span></Link>
 		    <span className="sidebar-nav-item"><span className="nav-note">{`Currently version ${version}`}</span></span>
