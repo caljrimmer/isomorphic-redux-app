@@ -7,7 +7,7 @@ import counter from './counter';
 import layout from './layout';
 import todos from './todos';
 import version from './version';
-import {selectedReddit,postsByReddit, promisePostsSuccess} from './reddit';
+import {selectedReddit,postsByReddit} from './reddit';
 
 const rootReducer = combineReducers({
   user : user,
