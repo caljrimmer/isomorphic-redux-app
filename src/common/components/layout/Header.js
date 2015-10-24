@@ -3,7 +3,14 @@ import React, { Component, PropTypes } from 'react';
 class Header extends Component {
 
   render() {
-  	let {counter, todos} = this.props;
+  	const {counter, todos} = this.props;
+  	const completedCount = todos.reduce((count, todo) =>
+      todo.completed ? count + 1 : count,
+      0
+    );
+    const activeCount = todos.length - completedCount;
+
+
     return (
       	<div className="masthead">
 			<div className="container">
@@ -11,7 +18,7 @@ class Header extends Component {
 			    <a href="/" title="Home">Redux Universal</a>
 			    <small>Click on menu icon to get started</small>
 			    <span className="counter-indicator">{`Counter : ${counter}`}</span>
-			    <span className="todo-indicator">{`Todos : ${todos.length}`}</span>
+			    <span className="todo-indicator">{`Todos : ${activeCount}`}</span>
 			  </h3>
 			</div>
 		</div>
