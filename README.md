@@ -5,6 +5,7 @@ This project serves as a **simple** boilerplate to start building an isomorphic 
 - Async server-side rendering
 - Hot reloading middleware
 - Redux DevTools and Logging
+- Redux Routing
 - Reddit API example
 - Counter example
 - Todo example
