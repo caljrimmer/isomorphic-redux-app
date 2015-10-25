@@ -26,4 +26,9 @@ class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  counter: PropTypes.number.isRequired,
+  todos: PropTypes.array.isRequired
+};
+
 export default Header;
