@@ -35,3 +35,7 @@ Then Visit
 ```
 http://localhost:3002
 ```
+
+## Credit
+
+App template was based on [Lanyon Theme](https://github.com/poole/lanyon) by 
