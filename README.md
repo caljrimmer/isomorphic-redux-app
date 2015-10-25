@@ -11,6 +11,8 @@ This project serves as a **simple** boilerplate to start building an isomorphic 
 - Todo example
 - Static content example
 
+<img src="http://g.recordit.co/iChc7ZH3H1.gif" width="728" />
+
 ## Stack
 
 - React.js
