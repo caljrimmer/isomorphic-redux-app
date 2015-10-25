@@ -11,10 +11,10 @@ import { selectedReddit, postsByReddit } from './reddit';
 
 const rootReducer = combineReducers({
   user : user,
+  version : version,
   counter : undoable(counter),
   layout : undoable(layout),
   todos : undoable(todos),
-  version : version,
   selectedReddit : undoable(selectedReddit),
   postsByReddit : undoable(postsByReddit),
   router : routerStateReducer

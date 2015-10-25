@@ -17,7 +17,7 @@ class Sidebar extends Component {
     	<div className="sidebar">
 
 		  <div className="sidebar-item">
-		    <p>This is an example of a website built with redux and react</p>
+		    <p>This is an example of a isomorphic website built with Redux and React</p>
 		    <p>Logged in as <b>{user.name}</b></p>
 		  </div>
 

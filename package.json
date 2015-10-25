@@ -1,8 +1,8 @@
 
 {
-  "name": "simple-redux-boiler",
-  "version": "0.0.8",
-  "description": "An example of a universally-rendered Redux application",
+  "name": "isomorphic-redux-app",
+  "version": "0.1.0",
+  "description": "An example of a isomorphic Redux application",
   "scripts": {
     "slate": "rm -rf node_modules && npm install",
     "clean": "rm -rf dist",
