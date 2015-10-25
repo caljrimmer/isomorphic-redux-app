@@ -1,6 +1,14 @@
-# Simple Redux Boilerplate
+# Isomorphic Redux App
 
-This project serves as a **simple** boilerplate to start building an universal rendering application in React.js and Redux.
+This project serves as a **simple** boilerplate to start building an isomorphic rendering application in React and Redux.
+
+- Async server-side rendering
+- Hot reloading middleware
+- Redux DevTools and Logging
+- Reddit API example
+- Counter example
+- Todo example
+- Static content example
 
 ## Stack
 
