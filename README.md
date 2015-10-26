@@ -25,13 +25,30 @@ This project serves as a **simple** boilerplate to start building an isomorphic 
 - Redux-DevTools
 - Babel
 
-## Installation instructions
+## Development Installation instructions
 
 In the project's directory, run the following commands:
 
 ```
 $ npm install
 $ npm start
+```
+
+Then Visit
+
+```
+http://localhost:3002
+```
+
+## Releasing to Production instructions
+
+Production has DevTools, Loggin and Hot reloading removed and the scripts/css compressed. 
+
+In the project's directory, run the following commands:
+
+```
+$ npm run build
+$ npm run start-prod
 ```
 
 Then Visit
