@@ -25,7 +25,7 @@ This project serves as a **simple** boilerplate to start building an isomorphic 
 - Redux-DevTools
 - Babel
 
-## Development Installation instructions
+## Development Installation
 
 In the project's directory, run the following commands:
 
@@ -40,9 +40,9 @@ Then Visit
 http://localhost:3002
 ```
 
-## Releasing to Production instructions
+## Releasing to Production
 
-Production has DevTools, Loggin and Hot reloading removed and the scripts/css compressed. 
+Production has Devtools, logging and hot reloading middleware removed and the scripts/css compressed. 
 
 In the project's directory, run the following commands:
 
