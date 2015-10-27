@@ -22,7 +22,8 @@ const renderFullPage = (html, initialState) => {
     <!doctype html>
     <html>
       <head>
-        <title>Simple Redux Universal Example</title>
+        <meta charset="utf-8">
+        <title>Isomorphic Redux Example</title>
       </head>
       <body>
         <div id="root">${html}</div>
