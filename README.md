@@ -57,6 +57,10 @@ Then Visit
 http://localhost:3002
 ```
 
+## Other Boilerplate code
+
+[Portfolio Redux App](https://github.com/caljrimmer/portfolio-redux-app)
+
 ## Credit
 
 App template was based on [Lanyon Theme](https://github.com/poole/lanyon) by [mdo](https://github.com/mdo)

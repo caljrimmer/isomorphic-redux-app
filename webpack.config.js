@@ -1,8 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
+var merge = require('merge');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var webpackConfig = {
-  devtool: 'inline-source-map',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -11,63 +12,79 @@ var webpackConfig = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin()
-  ],
-  module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules/,
-      include: __dirname,
-      query: {
-        optional: ['runtime'],
-        stage: 2,
-        env: {
-          development: {
-            plugins: [
-              'react-transform'
-            ],
-            extra: {
-              'react-transform': {
-                transforms: [{
-                  transform:  'react-transform-hmr',
-                  imports: ['react'],
-                  locals:  ['module']
-                }]
+  ]
+};
+
+if (process.env.NODE_ENV === 'production') {
+
+  webpackConfig = merge(webpackConfig,{
+    devtool: "source-map",
+    entry : [
+      './src/client/index.js'
+    ],
+    module: {
+      loaders: [{
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        include: __dirname
+      },
+      { test: /\.(png|jpg|gif|jpeg)$/, loader: 'url-loader?limit=8192'},
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap') }
+    ]},
+    plugins : [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      }),
+      new ExtractTextPlugin("app.css"),
+      new webpack.optimize.UglifyJsPlugin({minimize: true})
+    ]  
+  });
+
+}else{
+
+  webpackConfig = merge(webpackConfig,{
+    devtool: 'inline-source-map',
+    module: {
+      loaders: [{
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/,
+        include: __dirname,
+        query: {
+          optional: ['runtime'],
+          stage: 2,
+          env: {
+            development: {
+              plugins: [
+                'react-transform'
+              ],
+              extra: {
+                'react-transform': {
+                  transforms: [{
+                    transform:  'react-transform-hmr',
+                    imports: ['react'],
+                    locals:  ['module']
+                  }]
+                }
               }
             }
           }
         }
-      }
-    },
-    {
-       test: /\.css$/, 
-       loader: 'style-loader!css-loader'
-    }]
-  }
-};
-
-if (process.env.NODE_ENV === 'production') {
-  
-  webpackConfig.entry = [
-    './src/client/index.js'
-  ]
-  
-  webpackConfig.plugins.unshift(new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-    }
-  }));
-
-  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
-
-}else{
-
-  webpackConfig.entry = [
-    'webpack-hot-middleware/client',
-    './src/client/index.js'
-  ]
-
-  webpackConfig.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+      },
+      { test: /\.(png|jpg|gif|jpeg)$/, loader: 'url-loader?limit=8192'},
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
+    ]},
+    entry : [
+      'webpack-hot-middleware/client',
+      './src/client/index.js'
+    ],
+    plugins : [
+      new webpack.HotModuleReplacementPlugin()
+    ]  
+  });
   
 }
 

@@ -24,6 +24,7 @@ const renderFullPage = (html, initialState) => {
       <head>
         <meta charset="utf-8">
         <title>Isomorphic Redux Example</title>
+        <link rel="stylesheet" type="text/css" href="/static/app.css">
       </head>
       <body>
         <div id="root">${html}</div>
