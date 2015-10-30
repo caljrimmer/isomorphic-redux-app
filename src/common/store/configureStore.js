@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { devTools } from 'redux-devtools';
+import DevTools from '../../server/devtools';
 import { reduxReactRouter } from 'redux-router';
 import thunk from 'redux-thunk';
 import createHistory from 'history/lib/createBrowserHistory';
@@ -28,8 +28,8 @@ const middlewareBuilder = () => {
         middleware,
         reduxReactRouter({
           createHistory
-        }),
-        devTools()
+        })
+        ,DevTools.instrument()
       ]
     }
   }else{

@@ -21,7 +21,7 @@ function mapStateToProps(state) {
     items: posts
   } = postsByReddit[selectedReddit] || {
     isFetching: true,
-    error:false,
+    error:{},
     items: []
   };
 
