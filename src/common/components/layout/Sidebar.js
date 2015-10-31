@@ -18,7 +18,7 @@ class Sidebar extends Component {
 
 		  <div className="sidebar-item">
 		    <p>This is an example of a isomorphic website built with Redux and React</p>
-		    <p>Logged in as <b>{user.name}</b></p>
+		    <p>Logged in as <b className="user-name">{user.name}</b></p>
 		  </div>
 
 		  <nav className="sidebar-nav">
@@ -27,7 +27,7 @@ class Sidebar extends Component {
 		    <Link to="/todo" className="sidebar-nav-item" activeClassName="active">Todo <span className="nav-note">[stateful]</span></Link>
 		    <Link to="/counter" className="sidebar-nav-item" activeClassName="active">Counter <span className="nav-note">[stateful]</span></Link>
 		    <Link to="/about" className="sidebar-nav-item" activeClassName="active">About <span className="nav-note">[static]</span></Link>
-		    <span className="sidebar-nav-item"><span className="nav-note">{`Currently version ${version}`}</span></span>
+		    <span className="sidebar-nav-item"><span className="nav-note version">{`Currently version ${version}`}</span></span>
 		  </nav>
 
 		  <div className="sidebar-item sidebar-footer">

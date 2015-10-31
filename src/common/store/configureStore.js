@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import DevTools from '../../server/devtools';
+import { devTools } from 'redux-devtools';
 import { reduxReactRouter } from 'redux-router';
 import thunk from 'redux-thunk';
 import createHistory from 'history/lib/createBrowserHistory';
@@ -14,7 +14,7 @@ const middlewareBuilder = () => {
   let allComposeElements = [];
   
   if(process.browser){
-    if(process.env.NODE_ENV === 'production'){
+    if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test'){
       middleware = applyMiddleware(...universalMiddleware);
       allComposeElements = [
         middleware,
@@ -28,8 +28,8 @@ const middlewareBuilder = () => {
         middleware,
         reduxReactRouter({
           createHistory
-        })
-        ,DevTools.instrument()
+        }),
+        devTools()
       ]
     }
   }else{
