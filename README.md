@@ -1,6 +1,6 @@
 # Isomorphic Redux App
 
-[![build status](https://travis-ci.org/caljrimmer/isomorphic-redux-app.svg?branch=master&style=flat-square)](https://travis-ci.org/gaearon/redux-devtools)
+[![build status](https://travis-ci.org/caljrimmer/isomorphic-redux-app.svg?branch=master&style=flat-square)](https://travis-ci.org/caljrimmer/isomorphic-redux-app)
 
 This project serves as a **simple** boilerplate to start building an isomorphic rendering application in React and Redux.
 
