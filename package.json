@@ -47,7 +47,7 @@
     "webpack-hot-middleware": "^2.2.0",
     "merge":"^1.2.0",
     "extract-text-webpack-plugin" : "^0.8.2",
-    "jsdom": "^2.0.0",
+    "jsdom-no-contextify": "^3.1.0",
     "mocha": "^2.1.0",
     "expect": "^1.12.1"
   }
