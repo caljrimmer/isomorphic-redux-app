@@ -23,6 +23,11 @@ describe('Sidebar component', function(){
       </Provider>
     );
 
+    const wrapper = TestUtils.findRenderedDOMComponentWithClass(
+      renderedComponent,
+      'wrapper'
+    );
+
     const sidebar = TestUtils.findRenderedDOMComponentWithClass(
       renderedComponent,
       'sidebar'
@@ -33,6 +38,7 @@ describe('Sidebar component', function(){
       'sidebar-toggle'
     );
 
+    this.wrapper = wrapper.getDOMNode();
     this.renderedComponent = renderedComponent;
     this.store = renderedComponent.store;
     this.sidebar = sidebar.getDOMNode();
@@ -53,9 +59,9 @@ describe('Sidebar component', function(){
   });
 
   it('clicking sidebar toggle should open sidebar', function() {
+    expect(this.wrapper.getAttribute('class')).toBe('wrapper');
     TestUtils.Simulate.click(this.sidebarToggle);
-    this.renderedComponent.state = this.store.getState();
-    expect(this.sidebar.getAttribute('class')).toBe('sidebar open');
+    expect(this.wrapper.getAttribute('class')).toBe('wrapper open');
   });
 
 
