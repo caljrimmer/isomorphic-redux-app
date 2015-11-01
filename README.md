@@ -59,6 +59,11 @@ Then Visit
 http://localhost:3002
 ```
 
+## Run Test
+```
+npm test
+```
+
 ## Other Boilerplate code
 
 [Portfolio Redux App](https://github.com/caljrimmer/portfolio-redux-app)
