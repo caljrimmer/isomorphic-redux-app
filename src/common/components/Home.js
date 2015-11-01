@@ -9,7 +9,6 @@ class Home extends Component {
   
   			<div className="post">
 			    <h1 className="post-title">Introducing Redux Universal example</h1>
-    			<span className="post-date">{new Date()}</span>
     			<p>The theme has been based on <a href="http://lanyon.getpoole.com/">Lanyon</a> which in turn is based on <a href="http://getpoole.com">Poole</a>.</p>
 
 				<h3>Template features</h3>
@@ -40,7 +39,6 @@ class Home extends Component {
   
 		  	<div className="post">
 			    <h1 className="post-title">Example content</h1>
-			    <span className="post-date">{new Date()}</span>
 
 			    <div className="message">
 				  	This is an example content block that shows several types of HTML content supported in this theme.

@@ -1,7 +1,7 @@
 
 {
   "name": "isomorphic-redux-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An example of a isomorphic Redux application",
   "scripts": {
     "slate": "rm -rf node_modules && npm install",
@@ -9,7 +9,7 @@
     "start": "NODE_ENV=development node src/server/index.js --progress --colors --profile",
     "start-prod": "NODE_ENV=production node src/server/index.js --progress --colors --profile",
     "build": "npm run clean && NODE_ENV=production webpack -p --progress --colors --profile",
-    "test" : "expresso test/*"
+    "test" : "NODE_ENV=test mocha --compilers js:babel/register --recursive"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,8 @@
     "webpack-hot-middleware": "^2.2.0",
     "merge":"^1.2.0",
     "extract-text-webpack-plugin" : "^0.8.2",
-    "expresso" : "^0.9.2"
+    "jsdom-no-contextify": "^3.1.0",
+    "mocha": "^2.1.0",
+    "expect": "^1.12.1"
   }
 }

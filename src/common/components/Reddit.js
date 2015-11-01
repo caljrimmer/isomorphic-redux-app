@@ -76,7 +76,7 @@ class Reddit extends Component {
 Reddit.propTypes = {
   selectedReddit: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
-  error: PropTypes.object.isRequired,
+  error: PropTypes.object,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number
 };

@@ -14,7 +14,7 @@ const middlewareBuilder = () => {
   let allComposeElements = [];
   
   if(process.browser){
-    if(process.env.NODE_ENV === 'production'){
+    if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test'){
       middleware = applyMiddleware(...universalMiddleware);
       allComposeElements = [
         middleware,
