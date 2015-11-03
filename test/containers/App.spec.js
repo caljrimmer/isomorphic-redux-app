@@ -62,5 +62,4 @@ describe('App component', function(){
     expect(this.wrapper.getAttribute('class')).toBe('wrapper open');
   });
 
-
 });
