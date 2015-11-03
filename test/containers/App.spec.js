@@ -8,9 +8,7 @@ import configureStore from '../../src/common/store/configureStore';
 
 const TestUtils = React.addons.TestUtils;
 
-describe('Sidebar component', function(){
-
-  
+describe('App component', function(){
 
   before('render and locate element', function() {
     const store = configureStore({});
