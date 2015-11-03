@@ -6,7 +6,7 @@ import Sidebar from '../../src/common/components/layout/Sidebar';
 
 const TestUtils = React.addons.TestUtils;
 
-describe('Sidebar component', function(){
+describe('Sidebar Rending', function(){
 
 	const user =  {
 		name : 'John Smith',

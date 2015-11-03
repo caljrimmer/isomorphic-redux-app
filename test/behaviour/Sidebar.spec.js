@@ -8,7 +8,7 @@ import configureStore from '../../src/common/store/configureStore';
 
 const TestUtils = React.addons.TestUtils;
 
-describe('App component', function(){
+describe('Sidebar behaviour', function(){
 
   before('render and locate element', function() {
     const store = configureStore({});
@@ -37,8 +37,6 @@ describe('App component', function(){
     );
 
     this.wrapper = wrapper.getDOMNode();
-    this.renderedComponent = renderedComponent;
-    this.store = renderedComponent.store;
     this.sidebar = sidebar.getDOMNode();
     this.sidebarToggle = sidebarToggle.getDOMNode();
 
