@@ -23,7 +23,6 @@
     "react-router": "^1.0.0-rc1",
     "redux-router": "^1.0.0-beta3",
     "react-redux": "^2.1.2",
-    "react-dom": "^0.14.0-rc1",
     "redux": "^3.0.0",
     "redux-thunk": "^0.1.0",
     "redux-undo": "^0.5.0",
