@@ -2,12 +2,8 @@ import React from 'react';
 import addons from 'react/addons';
 import expect from 'expect';
 
-import App from '../../src/common/containers/App';
 import * as LayoutActions from '../../src/common/actions/layout';
-import { Provider } from 'react-redux';
 import configureStore from '../../src/common/store/configureStore';
-
-const TestUtils = React.addons.TestUtils;
 
 describe('Layout State', function(){
 
